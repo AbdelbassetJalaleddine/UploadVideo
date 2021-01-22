@@ -1,0 +1,17 @@
+{
+  "name": "uploadvideo",
+  "version": "1.0.0",
+  "description": "Uploading Video",
+  "main": "index.js",
+  "author": "Abdelbasset Jalaleddine",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "ffmpeg-static": "^4.2.7",
+    "mysql": "^2.18.1",
+    "sqlite3": "^5.0.1",
+    "video-thumbnail-generator": "^1.1.3"
+  }
+}
