@@ -8,6 +8,15 @@ var db = new sqlite3.Database("./data.db");
 global.document = new JSDOM("./home.html").window.document;
 const app = express();
 
+// app.use(express.static("public"));
+// app.use(express.static("files"));
+
+// app.use("/uploads/thumbnails", express.static("public"));
+// app.use("/uploads/thumbnails", express.static("files"));
+
+app.use(express.static("public"));
+app.use(express.static("uploads"));
+
 app.use(upload());
 
 app.get("/", (req, res) => {

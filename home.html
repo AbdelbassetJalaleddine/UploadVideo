@@ -136,11 +136,94 @@
   margin-left: 250px;
   margin-top: 50px;
   text-align: center;
+  position:relative;
   background-color: #f1f1f1;
 }
 .thumbnail{
   width: 200px;
   height: 200px;
+}
+.textCard{
+  width: 275px;
+  height: 44px;
+  overflow: hidden;
+  letter-spacing: 0px;
+  line-height: 1.2;
+  margin-top: 8px;
+  text-align: left;
+  color: #393856;
+  font-weight: 900;
+  font-style: normal;
+  font-family: "Lato", serif;
+  font-size: 18px;
+}
+.authorCard{     
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 90%;
+  height: 90%;
+  margin-bottom: 8px;
+  margin-left: 8px;
+  width: 59px;
+  height: 16px;
+  background: inherit;
+  text-align: left;
+  background-attachment: fixed;
+  overflow: visible;
+  letter-spacing: 0px;
+  line-height: 1.2;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  font-family: "Lato", serif;
+  color: #393856;
+}
+.threeDots{
+  position: absolute;
+  bottom: 0;
+  right: 2;
+  width: 90%;
+  height: 90%;
+  margin-right: 70px;
+  margin-bottom: 8px;
+  width: 59px;
+  height: 16px;
+  margin-top: 3.5%;
+  height: 20px;
+  width: 20px;
+  color: #393856;
+}
+.favourite{
+  position: absolute;
+  bottom: 0;
+  right: 1;
+  margin-right: 40px;
+  width: 90%;
+  height: 90%;
+  margin-bottom: 8px;
+  width: 59px;
+  height: 16px;
+  margin-top: 3.5%;
+  height: 20px;
+  width: 20px;
+  color: #393856;
+}
+.link{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 90%;
+  margin-right: 10px;
+  height: 90%;
+  margin-bottom: 8px;
+  width: 59px;
+  height: 16px;
+  margin-top: 3.5%;
+  height: 20px;
+  width: 20px;
+  color: #393856;
 }
         </style>
 </head>
@@ -187,8 +270,42 @@
   <div class="column">
     <div class="card">
       <input class="SelectedItem1" type="radio" id="male" name="gender">
-      <img class="thumbnail" src="./uploads/thumbnails/videoplayback.mp4.png"/>
+      <img class="thumbnail" src="./thumbnails/videoplayback.mp4.png"/>
+      <br>
+      <span class="textCard">Videoplayback</span>
+      <br>
+      <div class="row3">
+        <span class="authorCard">Abdelbasset</span>
+        <img class="threeDots" src="more.png" />
+        <img class="favourite" src="star.png" onclick="favourites('videoplayback.mp4')"/>
+        <img class="link" src="link.png" />
+      </div>
     </div>
 </div> 
+<div class="column">
+  <div class="card">
+    <input class="SelectedItem1" type="radio" id="male" name="gender">
+    <img class="thumbnail" src="./thumbnails/TOP 10 BEST CAT VIDEOS OF ALL TIME.mp4.png"/>
+    <br>
+    <span class="textCard">TOP 10 BEST CAT VIDEOS OF ALL TIME</span>
+    <br>
+    <div class="row3">
+      <span class="authorCard">Abdelbasset</span>
+      <img class="threeDots" src="more.png"/>
+      <img class="favourite" src="star.png" onclick="favourites('TOP 10 BEST CAT VIDEOS OF ALL TIME.mp4')" />
+      <img class="link" src="link.png" />
+    </div>
+  </div>
+</div> 
 </div>
+<script>
+function favourites(filename) {
+  console.log("\n \n \nPressed IT ")
+  const stmt = db.prepare('UPDATE videos SET favourites = ? WHERE name = ?'); 
+    const updates = stmt.run(1, filename);
+  console.log("DID IT!")
+}
+
+
+</script>
 </body>
