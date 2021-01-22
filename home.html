@@ -298,11 +298,11 @@
   </div>
 </div> 
 </div>
-<script>
+<script langauge="JavaScript">
 function favourites(filename) {
   console.log("\n \n \nPressed IT ")
   const stmt = db.prepare('UPDATE videos SET favourites = ? WHERE name = ?'); 
-    const updates = stmt.run(1, filename);
+    const updates = stmt.run(true, filename);
   console.log("DID IT!")
 }
 
