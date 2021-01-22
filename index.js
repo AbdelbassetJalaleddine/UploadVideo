@@ -2,9 +2,10 @@ const ffmpeg = require("fluent-ffmpeg");
 const ffmpeg_static = require("ffmpeg-static");
 const express = require("express");
 const upload = require("express-fileupload");
+const { JSDOM } = require("jsdom");
 var sqlite3 = require("sqlite3").verbose();
 var db = new sqlite3.Database("./data.db");
-
+global.document = new JSDOM("./home.html").window.document;
 const app = express();
 
 app.use(upload());
@@ -14,16 +15,14 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-  console.log(req.files);
-  console.log(req);
   if (req.files) {
     console.log(req.files);
     var file = req.files.file;
     var filename = file.name;
     console.log(filename);
 
-    //console.log("type", file.type);
-    //console.log("size", file.size);
+    console.log("type", file.type);
+    console.log("size", file.size);
 
     file.mv("./uploads/videos/" + filename, function (err) {
       writeToDB(filename);
@@ -59,35 +58,30 @@ function readFromDB() {
   db.serialize(function () {
     db.each("SELECT * FROM videos", function (err, row) {
       console.log("Name: " + row.name + "\nFavourites: " + row.favourites);
+      buildHairstyleCard(row.name, row.favourites);
     });
   });
 }
 
-// const buildHairstyleCard = (name, favourites) => {
-//   // Create elements needed to build a card
-//   const div = document.createElement("div");
-//   const h4 = document.createElement("h4");
-//   const a = document.createElement("a");
-//   const img = document.createElement("img");
-//   // Append newly created elements into the DOM
-//   const body = document.querySelector("body");
-//   body.append(div);
-//   h4.append(a);
-//   div.append(h4);
-//   div.append(img);
-//   // Set content and attributes
-//   a.innerHTML = name;
-//   img.setAttribute("src", "/uploads/thumbnails/" + name + ".png");
-//   div.setAttribute("class", "card");
-// };
+function buildHairstyleCard(name, favourites) {
+  // Create elements needed to build a card
+  try {
+    const div = document.createElement("div");
+    const img = document.createElement("img");
+    // Append newly created elements into the DOM
+    const body = document.querySelector("body");
+    body.append(div);
+    div.append(img);
+    // Set content and attributes
+    img.setAttribute("src", "./uploads/thumbnails/" + name + ".png");
+    img.setAttribute("width", "200px");
+    img.setAttribute("height", "200px");
 
-// try {
-//   db.serialize(function () {
-//     db.each("SELECT * FROM videos", function (err, row) {
-//       console.log("Name: " + row.name + "\nFavourites: " + row.favourites);
-//       data.forEach((hairstyle) => buildHairstyleCard(row.name, row.favourites));
-//     });
-//   });
-// } catch (error) {
-//   console.error(error);
-// }
+    console.log("/uploads/thumbnails/" + name + ".png");
+    div.setAttribute("class", "card");
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+readFromDB();

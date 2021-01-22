@@ -43,14 +43,14 @@
             color: #393856;
         }
         .slider{
-          margin-top: 1.5%;
+          margin-top: 1.6%;
             margin-left: 20px;
             height: 15px;
             width: 15px;
             color: #393856;
         }
         .allvideos{
-          width: 80px;
+          width: 90px;
           height: 17px;
           overflow: visible;
           letter-spacing: 0px;
@@ -58,7 +58,7 @@
           font-weight: 900;
           font-style: normal;
           font-family: "Lato", serif;
-          font-size: 16px;
+          font-size: 19px;
           margin-top: 1.5%;
           margin-left: 250px;
           color: #393856;
@@ -110,6 +110,38 @@
             top: 0;
             right: 0;
           }
+
+          .column {
+            float: left;
+            width: 25%;
+            padding: 0 10px;
+          }
+
+/* Remove extra left and right margins, due to padding in columns */
+.rowItems {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.rowItems:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+.card {
+  width: 300px;
+  height: 300px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  margin-left: 250px;
+  margin-top: 50px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+.thumbnail{
+  width: 200px;
+  height: 200px;
+}
         </style>
 </head>
 <body>
@@ -129,7 +161,7 @@
         <label for="file-input">
           <img class="upload" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNDcxLjIgNDcxLjIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ3MS4yIDQ3MS4yOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTQ1Ny43LDIzMC4xNWMtNy41LDAtMTMuNSw2LTEzLjUsMTMuNXYxMjIuOGMwLDMzLjQtMjcuMiw2MC41LTYwLjUsNjAuNUg4Ny41Yy0zMy40LDAtNjAuNS0yNy4yLTYwLjUtNjAuNXYtMTI0LjgNCgkJCWMwLTcuNS02LTEzLjUtMTMuNS0xMy41cy0xMy41LDYtMTMuNSwxMy41djEyNC44YzAsNDguMywzOS4zLDg3LjUsODcuNSw4Ny41aDI5Ni4yYzQ4LjMsMCw4Ny41LTM5LjMsODcuNS04Ny41di0xMjIuOA0KCQkJQzQ3MS4yLDIzNi4yNSw0NjUuMiwyMzAuMTUsNDU3LjcsMjMwLjE1eiIvPg0KCQk8cGF0aCBkPSJNMTU5LjMsMTI2LjE1bDYyLjgtNjIuOHYyNzMuOWMwLDcuNSw2LDEzLjUsMTMuNSwxMy41czEzLjUtNiwxMy41LTEzLjVWNjMuMzVsNjIuOCw2Mi44YzIuNiwyLjYsNi4xLDQsOS41LDQNCgkJCWMzLjUsMCw2LjktMS4zLDkuNS00YzUuMy01LjMsNS4zLTEzLjgsMC0xOS4xbC04NS44LTg1LjhjLTIuNS0yLjUtNi00LTkuNS00Yy0zLjYsMC03LDEuNC05LjUsNGwtODUuOCw4NS44DQoJCQljLTUuMyw1LjMtNS4zLDEzLjgsMCwxOS4xQzE0NS41LDEzMS4zNSwxNTQuMSwxMzEuMzUsMTU5LjMsMTI2LjE1eiIvPg0KCTwvZz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjwvc3ZnPg0K"/>
         </label>
-        <input type="file" id="file-input"  onchange="this.form.submit()"/>
+        <input type="file" id="file-input" name="file" onchange= "this.form.submit()"/>
       </div>
 </form>
   </div>
@@ -147,17 +179,16 @@
   <img class="slider" src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjUxMnB0IiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgd2lkdGg9IjUxMnB0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Im0wIDU4YzAtMTEuMDQ2ODc1IDguOTUzMTI1LTIwIDIwLTIwaDU2di0xOGMwLTExLjA0Njg3NSA4Ljk1MzEyNS0yMCAyMC0yMHMyMCA4Ljk1MzEyNSAyMCAyMHYxOGgzNzZjMTEuMDQ2ODc1IDAgMjAgOC45NTMxMjUgMjAgMjBzLTguOTUzMTI1IDIwLTIwIDIwaC0zNzZ2MThjMCAxMS4wNDY4NzUtOC45NTMxMjUgMjAtMjAgMjBzLTIwLTguOTUzMTI1LTIwLTIwdi0xOGgtNTZjLTExLjA0Njg3NSAwLTIwLTguOTUzMTI1LTIwLTIwem00OTIgMzc2aC01NnYtMThjMC0xMS4wNDY4NzUtOC45NTMxMjUtMjAtMjAtMjBzLTIwIDguOTUzMTI1LTIwIDIwdjE4aC0zNzZjLTExLjA0Njg3NSAwLTIwIDguOTUzMTI1LTIwIDIwczguOTUzMTI1IDIwIDIwIDIwaDM3NnYxOGMwIDExLjA0Njg3NSA4Ljk1MzEyNSAyMCAyMCAyMHMyMC04Ljk1MzEyNSAyMC0yMHYtMThoNTZjMTEuMDQ2ODc1IDAgMjAtOC45NTMxMjUgMjAtMjBzLTguOTUzMTI1LTIwLTIwLTIwem0wLTE5OGgtMjE2di0xOGMwLTExLjA0Njg3NS04Ljk1MzEyNS0yMC0yMC0yMHMtMjAgOC45NTMxMjUtMjAgMjB2MThoLTIxNmMtMTEuMDQ2ODc1IDAtMjAgOC45NTMxMjUtMjAgMjBzOC45NTMxMjUgMjAgMjAgMjBoMjE2djE4YzAgMTEuMDQ2ODc1IDguOTUzMTI1IDIwIDIwIDIwczIwLTguOTUzMTI1IDIwLTIwdi0xOGgyMTZjMTEuMDQ2ODc1IDAgMjAtOC45NTMxMjUgMjAtMjBzLTguOTUzMTI1LTIwLTIwLTIwem0wIDAiLz48L3N2Zz4=" />
 </div>
 
-<!-- <div class="GridVideos">
-  <input class="SelectedItem1" type="radio" id="male" name="gender">
-  <img class="thumbnail" src= />
-</div> -->
+ <div class="GridVideos">
+  
+</div> 
 
-<!-- <script type = "text/javascript">  
-  function myfunction() { 
-  alert("how are you");  
-           }  
-  myfunction();
-  </script>   
-
-
+<div class="rowItems">
+  <div class="column">
+    <div class="card">
+      <input class="SelectedItem1" type="radio" id="male" name="gender">
+      <img class="thumbnail" src="./uploads/thumbnails/videoplayback.mp4.png"/>
+    </div>
+</div> 
+</div>
 </body>
