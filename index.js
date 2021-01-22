@@ -19,6 +19,7 @@ app.post("/", (req, res) => {
     var file = req.files.file;
     var filename = file.name;
     console.log(filename);
+    //hey
 
     file.mv("./uploads/videos/" + filename, function (err) {
       writeToDB(filename);
